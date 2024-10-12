@@ -1,46 +1,42 @@
-# Getting Started with Create React App
+# theMoonQuest
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 설명
 
-## Available Scripts
+별소녀 리메이크
+달소녀 프로젝트
 
-In the project directory, you can run:
+## 커밋 컨벤션
 
-### `npm start`
+### 형식:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<이모지> <설명> [#이슈번호]
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 이모지와 타입:
 
-### `npm test`
+✨ feat: 새로운 기능 및 코드 추가<br/>
+🔥 remove: 기능 및 코드 제거<br/>
+🌊 modify: 기능 및 코드 수정<br/>
+🎨 style: 코드 스타일링<br/>
+➕ add: 파일 추가<br/>
+➖ remove: 파일 제거<br/>
+📦 move: 파일 이동<br/>
+🏗️ structure: 프로젝트 구조 변경<br/>
+🐛 fix: 버그 수정<br/>
+🚑 hotfix: 치명적인 버그 수정<br/>
+♻️ refactor: 코드 리팩토링<br/>
+📝 doc: 문서 작성 및 편집<br/>
+🎉 init: 초기 커밋<br/>
+🚀 deploy: 프로젝트 배포<br/>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 예시:
 
-### `npm run build`
+✨ 로그인 기능 추가 #12<br/>
+🔥 사용하지 않는 코드 제거 #23<br/>
+🌊 버튼 클릭 시 에러 수정 #45<br/>
+🎨 버튼 색상 변경 #67<br/>
+📝 README 업데이트 #89<br/>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+git clone https://github.com/dongapple/the-moon-quest.git
+npm install
+```
