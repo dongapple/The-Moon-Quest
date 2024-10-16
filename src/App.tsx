@@ -1,12 +1,8 @@
-// src/App.tsx
 import React from 'react';
+import Canvas from './components/Canvas';
 
 const App: React.FC = () => {
-  return (
-    <div className="App">
-      <p>초기 세팅 완료</p>
-    </div>
-  );
+  return <Canvas />;
 };
 
 export default App;
