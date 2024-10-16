@@ -1,9 +1,9 @@
-interface Position {
+export interface Position {
   x: number;
   y: number;
 }
 
-interface Player {
+export interface Player {
   player_id: number;
   character_id: number;
   current_fragments: number;
@@ -12,28 +12,28 @@ interface Player {
   member_id: number;
 }
 
-interface Skill {
+export interface Skill {
   skill_id: number;
   name: string;
   cooldown: number;
   effect: string;
 }
 
-interface GameResult {
+export interface GameResult {
   game_id: number;
   player1_fragments: number;
   player2_fragments: number;
   winner_id: number;
 }
 
-interface SoundSettings {
+export interface SoundSettings {
   effectVolume: number;
   effectOn: boolean;
   bgmVolume: number;
   bgmOn: boolean;
 }
 
-interface KeyBindings {
+export interface KeyBindings {
   jump: string;
   crouch: string;
   moveLeft: string;
@@ -43,7 +43,7 @@ interface KeyBindings {
   gather: string;
 }
 
-interface StoreState {
+export interface StoreState {
   players: Player[];
   characterSkills: Skill[];
   gameResults: GameResult[];

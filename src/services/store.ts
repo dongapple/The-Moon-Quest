@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import type { Position, SoundSettings, GameResult, StoreState } from './interfaces';
 
 const useStore = create<StoreState>((set) => ({
   players: [
@@ -39,46 +40,69 @@ const useStore = create<StoreState>((set) => ({
     skill: 'Q',
     gather: 'E',
   },
-  setPlayerPosition: (playerId: Player['player_id'], newPosition: Position) =>
-    set((state: StoreState) => ({
-      players: state.players.map((player: Player) =>
-        player.player_id === playerId ? { ...player, position: newPosition } : player
-      ),
-    })),
+  setPlayerPosition: function (playerId: number, newPosition: Position) {
+    set((state) => {
+      return {
+        players: state.players.map((player) => {
+          return player.player_id === playerId ? { ...player, position: newPosition } : player;
+        }),
+      };
+    });
+  },
 
-  updateCurrentFragments: (playerId: Player['player_id'], amount: number) =>
-    set((state: StoreState) => ({
-      players: state.players.map((player: Player) =>
-        player.player_id === playerId ? { ...player, current_fragments: amount } : player
-      ),
-    })),
+  updateCurrentFragments: function (playerId: number, amount: number) {
+    set((state) => {
+      return {
+        players: state.players.map((player) =>
+          player.player_id === playerId ? { ...player, current_fragments: amount } : player
+        ),
+      };
+    });
+  },
 
-  updateSavedFragments: (playerId: Player['player_id'], amount: number) =>
-    set((state: StoreState) => ({
-      players: state.players.map((player: Player) =>
-        player.player_id === playerId ? { ...player, saved_fragments: amount } : player
-      ),
-    })),
+  updateSavedFragments: function (playerId: number, amount: number) {
+    set((state) => {
+      return {
+        players: state.players.map((player) =>
+          player.player_id === playerId ? { ...player, saved_fragments: amount } : player
+        ),
+      };
+    });
+  },
 
-  updateSkillCooldown: (skillId: Skill['skill_id'], cooldown: number) =>
-    set((state: StoreState) => ({
-      characterSkills: state.characterSkills.map((skill: Skill) =>
-        skill.skill_id === skillId ? { ...skill, cooldown } : skill
-      ),
-    })),
+  updateSkillCooldown: function (skillId: number, cooldown: number) {
+    set((state) => {
+      return {
+        characterSkills: state.characterSkills.map((skill) =>
+          skill.skill_id === skillId ? { ...skill, cooldown } : skill
+        ),
+      };
+    });
+  },
 
-  updateSoundSettings: (newSettings: Partial<SoundSettings>) =>
-    set((state: StoreState) => ({
-      soundSettings: { ...state.soundSettings, ...newSettings },
-    })),
+  updateSoundSettings: function (newSettings: Partial<SoundSettings>) {
+    set((state) => {
+      return {
+        soundSettings: { ...state.soundSettings, ...newSettings },
+      };
+    });
+  },
 
-  updateKeyBindings: (newBindings: Record<string, string>) =>
-    set((state: StoreState) => ({
-      keyBindings: { ...state.keyBindings, ...newBindings },
-    })),
+  updateKeyBindings: function (newBindings: Record<string, string>) {
+    set((state) => {
+      return {
+        keyBindings: { ...state.keyBindings, ...newBindings },
+      };
+    });
+  },
 
-  updateGameResults: (result: GameResult) =>
-    set((state: StoreState) => ({
-      gameResults: [...state.gameResults, result],
-    })),
+  updateGameResults: function (result: GameResult) {
+    set((state) => {
+      return {
+        gameResults: [...state.gameResults, result],
+      };
+    });
+  },
 }));
+
+export default useStore;
