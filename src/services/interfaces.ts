@@ -49,6 +49,17 @@ export interface StoreState {
   gameResults: GameResult[];
   soundSettings: SoundSettings;
   keyBindings: KeyBindings;
+  currentScreen:
+    | 'home'
+    | 'howToPlay'
+    | 'preparation'
+    | 'characterSelect'
+    | 'mapSelect'
+    | 'game'
+    | 'final'
+    | 'ranking'
+    | 'creators';
+
   setPlayerPosition: (playerId: number, newPosition: Position) => void;
   updateCurrentFragments: (playerId: number, amount: number) => void;
   updateSavedFragments: (playerId: number, amount: number) => void;
@@ -56,4 +67,5 @@ export interface StoreState {
   updateSoundSettings: (newSettings: Partial<SoundSettings>) => void;
   updateKeyBindings: (newBindings: Record<string, string>) => void;
   updateGameResults: (result: GameResult) => void;
+  setCurrentScreen: (screen: StoreState['currentScreen']) => void;
 }

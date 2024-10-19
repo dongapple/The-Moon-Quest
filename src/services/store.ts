@@ -40,6 +40,13 @@ const useStore = create<StoreState>((set) => ({
     skill: 'Q',
     gather: 'E',
   },
+
+  currentScreen: 'home',
+
+  setCurrentScreen: (screen: StoreState['currentScreen']) => {
+    set({ currentScreen: screen });
+  },
+
   setPlayerPosition: function (playerId: number, newPosition: Position) {
     set((state) => {
       return {
