@@ -1,23 +1,13 @@
 // App.tsx
-import React, { useState } from 'react';
+import React from 'react';
+import useStore from './services/store';
 import Canvas from './components/Canvas';
 
 const App: React.FC = () => {
-  const [currentScreen, setCurrentScreen] = useState<
-    | 'home'
-    | 'howToPlay'
-    | 'preparation'
-    | 'characterSelect'
-    | 'mapSelect'
-    | 'game'
-    | 'final'
-    | 'ranking'
-    | 'creators'
-  >('home');
+  const { currentScreen, setCurrentScreen } = useStore();
 
   return (
     <div>
-      <h1>Game Application</h1>
       <Canvas currentScreen={currentScreen} setCurrentScreen={setCurrentScreen} />
       <div>
         <button
