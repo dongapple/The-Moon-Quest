@@ -51,7 +51,11 @@ const Canvas: React.FC<CanvasProps> = ({ currentScreen, setCurrentScreen }) => {
         <ScreenHowToPlay context={context} canvas={canvasRef.current} />
       )}
       {currentScreen === 'preparation' && (
-        <ScreenPreparation context={context} canvas={canvasRef.current} />
+        <ScreenPreparation
+          context={context}
+          canvas={canvasRef.current}
+          setCurrentScreen={setCurrentScreen}
+        />
       )}
       {currentScreen === 'characterSelect' && (
         <ScreenCharacterSelect context={context} canvas={canvasRef.current} />
