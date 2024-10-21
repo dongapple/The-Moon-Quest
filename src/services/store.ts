@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import type { Position, SoundSettings, GameResult, StoreState } from './interfaces';
-
+let timerId: number | null = null;
+const gameTimer = 5;
 const useStore = create<StoreState>((set) => ({
   players: [
     {
@@ -25,6 +26,7 @@ const useStore = create<StoreState>((set) => ({
     { skill_id: 2, name: 'Heal', cooldown: 10, effect: 'Restores health' },
   ],
   gameResults: [],
+
   soundSettings: {
     effectVolume: 100,
     effectOn: true,
@@ -109,6 +111,88 @@ const useStore = create<StoreState>((set) => ({
         gameResults: [...state.gameResults, result],
       };
     });
+  },
+  startGame: function () {
+    // 현재 상태를 가져와서
+    set((state) => {
+      // 현재 화면이 'game'이 아닐 경우
+      if (state.currentScreen !== 'game') {
+        console.log('게임중단');
+        return state; // 게임이 중단되면 현재 상태를 그대로 반환
+      }
+
+      // 이전 타이머가 설정되어 있으면 정리
+      if (timerId !== null) {
+        clearInterval(timerId);
+      }
+
+      const gameId = state.gameResults.length + 1;
+      const initialGameResult = {
+        game_id: gameId,
+        player1_fragments: 0,
+        player2_fragments: 0,
+        player1_id: state.players[0].player_id,
+        player2_id: state.players[1].player_id,
+        winner_id: 0,
+      };
+
+      // 초기 게임 결과 추가
+      return {
+        gameResults: [...state.gameResults, initialGameResult],
+      };
+    });
+
+    let remainingTime = gameTimer; // 남은 시간 변수
+
+    // 타이머 업데이트 함수
+    timerId = window.setInterval(() => {
+      set((state) => {
+        // 현재 화면이 'game'이 아닐 경우 타이머 종료
+        if (state.currentScreen !== 'game') {
+          console.log('게임중단');
+          if (timerId !== null) {
+            // timerId가 null이 아닐 때만 clearInterval 호출
+            clearInterval(timerId);
+            timerId = null; // timerId를 null로 설정
+          }
+          return state; // 상태를 그대로 반환하여 중단
+        }
+
+        if (remainingTime > 0) {
+          remainingTime -= 1;
+          const currentGame = state.gameResults[state.gameResults.length - 1];
+          return {
+            gameResults: [
+              ...state.gameResults.slice(0, -1),
+              { ...currentGame }, // end_time 제거
+            ],
+          };
+        } else {
+          if (timerId !== null) {
+            clearInterval(timerId); // 타이머 종료
+            timerId = null; // timerId를 null로 설정
+          }
+
+          // 승자 결정 로직
+          const currentGame = state.gameResults[state.gameResults.length - 1];
+          const winnerId =
+            currentGame.player1_fragments > currentGame.player2_fragments
+              ? currentGame.player1_id
+              : currentGame.player1_fragments < currentGame.player2_fragments
+                ? currentGame.player2_id
+                : 0;
+
+          console.log('타임끝');
+          return {
+            gameResults: [
+              ...state.gameResults.slice(0, -1),
+              { ...currentGame, winner_id: winnerId },
+            ],
+            currentScreen: 'final', // final 페이지로 이동
+          };
+        }
+      });
+    }, 1000);
   },
 }));
 

@@ -9,6 +9,7 @@ const App: React.FC = () => {
   return (
     <div>
       <Canvas currentScreen={currentScreen} setCurrentScreen={setCurrentScreen} />
+      {/* 테스트용 버튼 */}
       <div>
         <button
           onClick={() => {

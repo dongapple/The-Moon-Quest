@@ -23,6 +23,8 @@ export interface GameResult {
   game_id: number;
   player1_fragments: number;
   player2_fragments: number;
+  player1_id: number;
+  player2_id: number;
   winner_id: number;
 }
 
@@ -68,4 +70,5 @@ export interface StoreState {
   updateKeyBindings: (newBindings: Record<string, string>) => void;
   updateGameResults: (result: GameResult) => void;
   setCurrentScreen: (screen: StoreState['currentScreen']) => void;
+  startGame: () => void; // startGame 함수 추가
 }
