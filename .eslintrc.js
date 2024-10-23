@@ -33,6 +33,6 @@ module.exports = {
     'no-unused-vars': ['warn'],
     'no-console': 'warn',
     'prettier/prettier': 'error',
-    'linebreak-style': 0,
+    'linebreak-style': ['error', 'unix'],
   },
 };
