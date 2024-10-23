@@ -1,3 +1,5 @@
+// store.ts
+
 import { create } from 'zustand';
 import type { Position, SoundSettings, GameResult, StoreState } from './interfaces';
 let timerId: number | null = null;
@@ -43,7 +45,19 @@ const useStore = create<StoreState>((set) => ({
     gather: 'E',
   },
 
+  keyPressed: {},
+
   currentScreen: 'home',
+
+  setKeyPressed: (key, state) => {
+    set((prevState) => ({
+      ...prevState,
+      keyPressed: {
+        ...prevState.keyPressed,
+        [key]: state,
+      },
+    }));
+  },
 
   setCurrentScreen: (screen: StoreState['currentScreen']) => {
     set({ currentScreen: screen });

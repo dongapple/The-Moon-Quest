@@ -1,3 +1,5 @@
+// interfaces.ts
+
 export interface Position {
   x: number;
   y: number;
@@ -45,7 +47,10 @@ export interface KeyBindings {
   gather: string;
 }
 
+export type KeyPressed = Record<string, boolean>;
+
 export interface StoreState {
+  [x: string]: any;
   players: Player[];
   characterSkills: Skill[];
   gameResults: GameResult[];
@@ -71,4 +76,5 @@ export interface StoreState {
   updateGameResults: (result: GameResult) => void;
   setCurrentScreen: (screen: StoreState['currentScreen']) => void;
   startGame: () => void; // startGame 함수 추가
+  setKeyPressed: (key: string, state: boolean) => void;
 }
