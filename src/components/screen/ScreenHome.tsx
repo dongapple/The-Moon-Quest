@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { type StoreState } from '../services/interfaces';
+import { type StoreState } from '../../services/interfaces';
 
-const ScreenPreparation: React.FC<{
+const ScreenHome: React.FC<{
   context: CanvasRenderingContext2D | null;
   canvas: HTMLCanvasElement | null;
   setCurrentScreen: StoreState['setCurrentScreen'];
@@ -9,11 +9,11 @@ const ScreenPreparation: React.FC<{
   useEffect(() => {
     if (context != null && canvas != null) {
       context.clearRect(0, 0, canvas.width, canvas.height);
-      context.fillStyle = 'lightgreen';
+      context.fillStyle = 'skyblue';
       context.fillRect(0, 0, canvas.width, canvas.height);
       context.fillStyle = 'white';
       context.font = '30px Arial';
-      context.fillText('Preparation Screen', 50, 50);
+      context.fillText('Home Screen', 50, 50);
     }
   }, [context, canvas]);
 
@@ -21,27 +21,27 @@ const ScreenPreparation: React.FC<{
     <div>
       <button
         onClick={() => {
-          setCurrentScreen('characterSelect'); // 게임 방법 페이지로 이동
+          setCurrentScreen('howToPlay'); // 게임 방법 페이지로 이동
         }}
       >
-        캐릭터 선택
+        게임 방법
       </button>
       <button
         onClick={() => {
-          setCurrentScreen('mapSelect'); // 랭킹 페이지로 이동
+          setCurrentScreen('ranking'); // 랭킹 페이지로 이동
         }}
       >
-        맵선택
+        랭킹
       </button>
       <button
         onClick={() => {
-          setCurrentScreen('game'); // 제작자들 페이지로 이동
+          setCurrentScreen('creators'); // 제작자들 페이지로 이동
         }}
       >
-        게임시작
+        제작자들
       </button>
     </div>
   );
 };
 
-export default ScreenPreparation;
+export default ScreenHome;

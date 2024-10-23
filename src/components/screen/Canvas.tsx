@@ -9,7 +9,7 @@ import ScreenGame from './ScreenGame';
 import ScreenFinal from './ScreenFinal';
 import ScreenRanking from './ScreenRanking';
 import ScreenCreators from './ScreenCreators';
-import { type StoreState } from '../services/interfaces';
+import { type StoreState } from '../../services/interfaces';
 
 interface CanvasProps {
   currentScreen: StoreState['currentScreen'];

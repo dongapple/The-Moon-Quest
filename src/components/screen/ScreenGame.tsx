@@ -1,6 +1,6 @@
 import type React from 'react';
 import { useEffect } from 'react';
-import useStore from '../services/store';
+import useStore from '../../services/store';
 
 const ScreenGame: React.FC<{
   context: CanvasRenderingContext2D | null;
