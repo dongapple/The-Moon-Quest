@@ -31,13 +31,19 @@ const KeyboardButton: React.FC<keyboardButtonProps> = ({ keyName }) => {
 
   return (
     <button
+      onMouseDown={() => {
+        setIsPressed(true);
+      }}
+      onMouseUp={() => {
+        setIsPressed(false);
+      }}
       style={{
         backgroundColor: isPressed ? 'lightblue' : 'white',
         transform: isPressed ? 'scale(0.95)' : 'scale(1)',
         transition: 'transform 0.1s',
       }}
     >
-      {keyName}
+      {keyName === ' ' ? 'SPACE' : keyName.toUpperCase()}
     </button>
   );
 };
