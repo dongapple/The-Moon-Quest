@@ -1,4 +1,3 @@
-// Canvas.tsx
 import React, { useRef, useEffect, useState } from 'react';
 import ScreenHome from './ScreenHome';
 import ScreenHowToPlay from './ScreenHowToPlay';
@@ -36,6 +35,25 @@ const Canvas: React.FC<CanvasProps> = ({ currentScreen, setCurrentScreen }) => {
       context.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
     }
   }, [context, currentScreen]);
+
+  // 우클릭 방지
+  useEffect(() => {
+    const canvasElement = canvasRef.current;
+    const handleContextMenu = (event: MouseEvent): void => {
+      event.preventDefault(); // 기본 컨텍스트 메뉴 방지
+    };
+
+    if (canvasElement != null) {
+      canvasElement.addEventListener('contextmenu', handleContextMenu);
+    }
+
+    // 정리 함수
+    return () => {
+      if (canvasElement != null) {
+        canvasElement.removeEventListener('contextmenu', handleContextMenu);
+      }
+    };
+  }, []);
 
   return (
     <>
