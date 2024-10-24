@@ -36,28 +36,18 @@ const useStore = create<StoreState>((set) => ({
     bgmOn: true,
   },
   keyBindings: {
-    jump: 'Space',
-    crouch: 'Ctrl',
-    moveLeft: 'A',
-    moveRight: 'D',
-    attack: 'LeftClick',
-    skill: 'Q',
-    gather: 'E',
+    jump: 'w',
+    crouch: 's',
+    moveLeft: 'a',
+    moveRight: 'd',
+    attack: 0,
+    skill: 2,
+    gather: ' ',
   },
 
   keyPressed: {},
 
   currentScreen: 'home',
-
-  setKeyPressed: (key, state) => {
-    set((prevState) => ({
-      ...prevState,
-      keyPressed: {
-        ...prevState.keyPressed,
-        [key]: state,
-      },
-    }));
-  },
 
   setCurrentScreen: (screen: StoreState['currentScreen']) => {
     set({ currentScreen: screen });

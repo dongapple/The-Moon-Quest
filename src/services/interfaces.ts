@@ -42,8 +42,8 @@ export interface KeyBindings {
   crouch: string;
   moveLeft: string;
   moveRight: string;
-  attack: string;
-  skill: string;
+  attack: number;
+  skill: number;
   gather: string;
 }
 
@@ -76,5 +76,4 @@ export interface StoreState {
   updateGameResults: (result: GameResult) => void;
   setCurrentScreen: (screen: StoreState['currentScreen']) => void;
   startGame: () => void; // startGame 함수 추가
-  setKeyPressed: (key: string, state: boolean) => void;
 }
