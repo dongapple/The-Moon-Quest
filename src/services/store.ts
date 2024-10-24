@@ -1,3 +1,5 @@
+// store.ts
+
 import { create } from 'zustand';
 import type { Position, SoundSettings, GameResult, StoreState } from './interfaces';
 let timerId: number | null = null;
@@ -34,14 +36,16 @@ const useStore = create<StoreState>((set) => ({
     bgmOn: true,
   },
   keyBindings: {
-    jump: 'Space',
-    crouch: 'Ctrl',
-    moveLeft: 'A',
-    moveRight: 'D',
-    attack: 'LeftClick',
-    skill: 'Q',
-    gather: 'E',
+    jump: 'w',
+    crouch: 's',
+    moveLeft: 'a',
+    moveRight: 'd',
+    attack: 0,
+    skill: 2,
+    gather: ' ',
   },
+
+  keyPressed: {},
 
   currentScreen: 'home',
 

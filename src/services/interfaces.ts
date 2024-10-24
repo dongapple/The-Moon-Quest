@@ -1,3 +1,5 @@
+// interfaces.ts
+
 export interface Position {
   x: number;
   y: number;
@@ -40,12 +42,15 @@ export interface KeyBindings {
   crouch: string;
   moveLeft: string;
   moveRight: string;
-  attack: string;
-  skill: string;
+  attack: number;
+  skill: number;
   gather: string;
 }
 
+export type KeyPressed = Record<string, boolean>;
+
 export interface StoreState {
+  [x: string]: any;
   players: Player[];
   characterSkills: Skill[];
   gameResults: GameResult[];

@@ -1,26 +1,22 @@
-import type React from 'react';
-import { useEffect } from 'react';
-import useStore from '../services/store';
+import React, { useEffect } from 'react';
+import KeyPress from '../keyPress/KeyPress';
 
-const ScreenGame: React.FC<{
+const ScreenCharacterSelect: React.FC<{
   context: CanvasRenderingContext2D | null;
   canvas: HTMLCanvasElement | null;
 }> = ({ context, canvas }) => {
-  const startGame = useStore((state) => state.startGame);
-
   useEffect(() => {
     if (context != null && canvas != null) {
       context.clearRect(0, 0, canvas.width, canvas.height);
-      context.fillStyle = 'green';
+      context.fillStyle = 'lightcoral';
       context.fillRect(0, 0, canvas.width, canvas.height);
       context.fillStyle = 'white';
       context.font = '30px Arial';
-      context.fillText('Game Screen', 50, 50);
-      startGame();
+      context.fillText('Character Select', 50, 50);
     }
-  }, []);
+  }, [context, canvas]);
 
-  return null;
+  return <KeyPress />;
 };
 
-export default ScreenGame;
+export default ScreenCharacterSelect;

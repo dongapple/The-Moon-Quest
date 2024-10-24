@@ -1,7 +1,7 @@
 // App.tsx
 import React from 'react';
 import useStore from './services/store';
-import Canvas from './components/Canvas';
+import Canvas from './components/screen/Canvas';
 
 const App: React.FC = () => {
   const { currentScreen, setCurrentScreen } = useStore();
