@@ -1,5 +1,5 @@
-import type React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
+import KeyPress from '../keyPress/KeyPress';
 
 const ScreenCharacterSelect: React.FC<{
   context: CanvasRenderingContext2D | null;
@@ -16,7 +16,7 @@ const ScreenCharacterSelect: React.FC<{
     }
   }, [context, canvas]);
 
-  return null;
+  return <KeyPress />;
 };
 
 export default ScreenCharacterSelect;

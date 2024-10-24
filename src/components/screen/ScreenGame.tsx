@@ -1,6 +1,6 @@
-import type React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import useStore from '../../services/store';
+import KeyPress from '../keyPress/KeyPress';
 
 const ScreenGame: React.FC<{
   context: CanvasRenderingContext2D | null;
@@ -20,7 +20,11 @@ const ScreenGame: React.FC<{
     }
   }, []);
 
-  return null;
+  return (
+    <>
+      <KeyPress />
+    </>
+  );
 };
 
 export default ScreenGame;

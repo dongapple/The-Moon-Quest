@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { type StoreState } from '../../services/interfaces';
+import KeyPress from '../keyPress/KeyPress';
 
 const ScreenPreparation: React.FC<{
   context: CanvasRenderingContext2D | null;
@@ -40,6 +41,7 @@ const ScreenPreparation: React.FC<{
       >
         게임시작
       </button>
+      <KeyPress />
     </div>
   );
 };
